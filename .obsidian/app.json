@@ -1,0 +1,19 @@
+{
+  "userIgnoreFilters": [
+    "00_System/antigravity/bin",
+    "00_System/antigravity/lib",
+    "00_System/antigravity/builtin",
+    "00_System/antigravity/cache",
+    "00_System/antigravity/crashes",
+    "00_System/antigravity/code_tracker",
+    "00_System/antigravity-backup",
+    "00_System/antigravity-browser-profile",
+    "00_System/antigravity-ide",
+    "00_System/antigravity-cli/bin",
+    "00_System/antigravity-cli/builtin",
+    "00_System/antigravity-cli/cache",
+    "00_System/antigravity-cli/updater",
+    "00_System/config/node_modules",
+    "00_System/sandbox"
+  ]
+}

@@ -1,0 +1,18 @@
+# Obsidian キャッシュ・ゴミ箱
+.trash/
+.obsidian/workspace*
+.obsidian/cache/
+*.tmp
+*~
+
+# 00_System（.gemini 実体）は別リポジトリまたはローカル専用として除外
+00_System/
+
+# OS固有ファイル
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Python 一時ファイル
+__pycache__/
+*.py[cod]

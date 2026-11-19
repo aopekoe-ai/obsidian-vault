@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SNSにゅーす (Social Media News) - Characters 公式キャラクター図鑑</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <meta property="og:image" content="ogp_banner_1200x630.jpg">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      background-color: #FFFDF9;
+      background-image: radial-gradient(#FFE4E6 1.5px, transparent 1.5px), radial-gradient(#FEF3C7 1.5px, #FFFDF9 1.5px);
+      background-size: 40px 40px;
+      background-position: 0 0, 20px 20px;
+      color: #33272a;
+    }
+    .font-rounded {
+      font-family: 'M PLUS Rounded 1c', sans-serif;
+    }
+    .shadow-pop {
+      box-shadow: 4px 4px 0px #33272a;
+    }
+    .shadow-pop-yellow { box-shadow: 4px 4px 0px #D97706; }
+    .shadow-pop-green  { box-shadow: 4px 4px 0px #059669; }
+    .shadow-pop-pink   { box-shadow: 4px 4px 0px #E11D48; }
+    .shadow-pop-navy   { box-shadow: 4px 4px 0px #172554; }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- ヘッダー -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b-2 border-orange-100 px-4 py-3 flex items-center justify-between">
+    <a href="top_page_prototype.html" class="flex items-center gap-2.5">
+      <img src="favicon_512.png" alt="SNSにゅーす" class="w-10 h-10 rounded-2xl object-cover shadow-sm border-2 border-rose-200">
+      <div>
+        <span class="font-rounded font-extrabold text-xl text-slate-800">SNS<span class="text-rose-500">にゅーす</span></span>
+        <span class="block text-[10px] font-bold text-slate-400">Social Media News | CHARACTERS</span>
+      </div>
+    </a>
+    <div class="flex items-center gap-2">
+      <a href="top_page_prototype.html" class="px-3.5 py-2 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-rounded font-bold text-xs transition">
+        🏠 トップ
+      </a>
+      <a href="article_detail_prototype.html" class="px-3.5 py-2 rounded-full bg-rose-500 hover:bg-rose-600 text-white font-rounded font-bold text-xs shadow transition">
+        💬 4人娘の討論ページ
+      </a>
+      <a href="atelier_rei_prototype.html" class="px-3.5 py-2 rounded-full bg-[#172554] hover:bg-[#1E3A8A] text-white font-rounded font-bold text-xs shadow transition">
+        🛍️ Atelier Rei (Goods)
+      </a>
+      <a href="atelier_rei_prototype.html#about" class="px-3.5 py-2 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-rounded font-bold text-xs transition">
+        📖 About Us
+      </a>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 py-8 flex-1">
+    <!-- キービジュアル 3種紹介 -->
+    <div class="bg-white rounded-3xl border-2 border-slate-800 p-6 md:p-8 shadow-pop mb-10">
+      <div class="text-center max-w-2xl mx-auto mb-6">
+        <span class="bg-rose-100 text-rose-600 font-rounded font-extrabold text-xs px-3 py-1 rounded-full border border-rose-200">✨ OFFICIAL ARTWORKS</span>
+        <h1 class="font-rounded font-extrabold text-2xl md:text-3xl text-slate-800 mt-2">超ド派手4人娘 公式ビジュアル＆設定画ギャラリー</h1>
+        <p class="text-sm text-slate-600 mt-1">通常ver・ちびキャラver・マンガ会議verと、4人それぞれの全身プロフィールシート一覧</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div class="bg-amber-50/50 rounded-2xl p-3 border border-amber-200">
+          <img src="01_4girls_normal_ver.jpg" class="w-full h-56 object-cover rounded-xl border border-white shadow mb-2">
+          <div class="font-rounded font-extrabold text-sm text-slate-800">① 公式通常ver（SSRカード水準）</div>
+          <p class="text-xs text-slate-500">メインキービジュアル・ヒーローバナー用</p>
+        </div>
+        <div class="bg-rose-50/50 rounded-2xl p-3 border border-rose-200">
+          <img src="02_4girls_chibi_ver.jpg" class="w-full h-56 object-contain bg-white rounded-xl border border-white shadow mb-2">
+          <div class="font-rounded font-extrabold text-sm text-slate-800">② 公式ちびキャラ（ミニキャラ）ver</div>
+          <p class="text-xs text-slate-500">記事内のセリフ吹き出し・SNSアイコン用</p>
+        </div>
+        <div class="bg-[#EBF0FA]/60 rounded-2xl p-3 border border-[#2B4270]/30">
+          <img src="03_4girls_manga_ver.jpg" class="w-full h-56 object-cover rounded-xl border border-white shadow mb-2">
+          <div class="font-rounded font-extrabold text-sm text-slate-800">③ 公式マンガ・会議シーンver</div>
+          <p class="text-xs text-slate-500">記事詳細ページの討論ヘッダー・4コマ導入用</p>
+        </div>
+      </div>
+
+      <!-- 公式OGPバナー ＆ ファビコン原画 -->
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-5 mt-5 pt-5 border-t border-slate-100">
+        <div class="md:col-span-8 bg-gradient-to-r from-amber-50/60 via-rose-50/60 to-[#EBF0FA]/60 rounded-2xl p-3 border border-rose-200">
+          <img src="ogp_banner.jpg" class="w-full h-56 object-cover rounded-xl border border-white shadow mb-2">
+          <div class="font-rounded font-extrabold text-sm text-slate-800">④ 公式共通OGPバナー（SNSにゅーす ロゴ入り・1200×630対応）</div>
+          <p class="text-xs text-slate-500">X(旧Twitter)・LINE・Discordシェア時の大型アイキャッチカード＆トップバナー</p>
+        </div>
+        <div class="md:col-span-4 bg-emerald-50/50 rounded-2xl p-3 border border-emerald-200 flex flex-col justify-between">
+          <img src="favicon_origin.jpg" class="w-full h-56 object-contain bg-white rounded-xl border border-white shadow mb-2">
+          <div>
+            <div class="font-rounded font-extrabold text-sm text-slate-800">⑤ 公式ファビコン原画（正方形 1:1）</div>
+            <p class="text-xs text-slate-500">ブラウザタブ(32px)・スマホホームアイコン(180px/512px)用</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 公式404 Not Found イラスト -->
+      <div class="mt-5 pt-5 border-t border-slate-100">
+        <div class="bg-gradient-to-r from-purple-50/80 via-white to-pink-50/80 rounded-2xl p-4 border border-purple-200 flex flex-col md:flex-row items-center gap-5">
+          <img src="404_error_4girls.jpg" class="w-full md:w-2/3 h-64 object-cover rounded-xl border border-white shadow">
+          <div class="space-y-2 text-left">
+            <span class="text-xs font-rounded font-extrabold px-2.5 py-0.5 rounded-full bg-rose-100 text-rose-700">404 ERROR VISUAL</span>
+            <div class="font-rounded font-extrabold text-base text-slate-800">⑥ 公式404 Not Found イラスト（迷子・困惑・行き止まり）</div>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              乃愛（パケット消失）・芽依（糖分補給）・詩羽（行き止まり看板）・怜衣（打ち間違い指摘）の公式セリフ入り。存在しないURLアクセス時に読者を楽しくトップへ戻す専用エラー画面用ビジュアル。
+            </p>
+            <a href="404_prototype.html" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-slate-900 text-white font-rounded font-extrabold text-xs shadow-sm pop-btn">
+              <span>🚀</span> 404ページ実機プレビューを見る →
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4人娘 プロフィールシート（Characters紹介のため AI 表記なし・髪色準拠カラー） -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <!-- 1. 有栖川 乃愛（黄色・アンバー系） -->
+      <div class="bg-gradient-to-b from-amber-50 to-white rounded-3xl border-2 border-amber-400 p-5 shadow-pop-yellow">
+        <div class="flex items-center gap-3 mb-4">
+          <img src="chibi_noa.jpg" class="w-16 h-16 rounded-full border-2 border-amber-400 object-cover shadow">
+          <div>
+            <span class="text-xs font-rounded font-extrabold bg-amber-100 text-amber-900 px-2.5 py-0.5 rounded-full border border-amber-300">💻 Code : Programmer</span>
+            <h2 class="font-rounded font-extrabold text-xl text-slate-800 mt-1">有栖川 乃愛 <span class="text-xs font-normal text-slate-500">（ありすがわ のあ）</span></h2>
+            <p class="text-xs text-amber-800 font-bold">162cm / 45kg / B83 W56 H85 / 天才プログラマー</p>
+          </div>
+        </div>
+        <img src="profile_01_arisugawa_noa.jpg" class="w-full rounded-2xl border-2 border-amber-300 shadow-sm mb-3">
+        <p class="text-xs text-slate-700 bg-white p-3 rounded-xl border border-amber-200 font-medium">
+          「……私にできないことはない。だって、私は天才だから。理想の未来は、自分の手で創る。」
+        </p>
+      </div>
+
+      <!-- 2. 若葉 芽依（エメラルドグリーン系） -->
+      <div class="bg-gradient-to-b from-emerald-50 to-white rounded-3xl border-2 border-emerald-400 p-5 shadow-pop-green">
+        <div class="flex items-center gap-3 mb-4">
+          <img src="chibi_mei.jpg" class="w-16 h-16 rounded-full border-2 border-emerald-400 object-cover shadow">
+          <div>
+            <span class="text-xs font-rounded font-extrabold bg-emerald-100 text-emerald-900 px-2.5 py-0.5 rounded-full border border-emerald-300">🥑 Code : Ketogenic-Queen</span>
+            <h2 class="font-rounded font-extrabold text-xl text-slate-800 mt-1">若葉 芽依 <span class="text-xs font-normal text-slate-500">（わかば めい）</span></h2>
+            <p class="text-xs text-emerald-800 font-bold">162cm / 45kg / B84 W57 H86 / ケトジェニック・栄養コンサル</p>
+          </div>
+        </div>
+        <img src="profile_02_wakaba_mei.jpg" class="w-full rounded-2xl border-2 border-emerald-300 shadow-sm mb-3">
+        <p class="text-xs text-slate-700 bg-white p-3 rounded-xl border border-emerald-200 font-medium">
+          「それ、完全に糖質中毒の脳になってますよ！あなたはあなたが食べたものでできています✨」
+        </p>
+      </div>
+
+      <!-- 3. 緋宮 詩羽（クリムゾンレッド系） -->
+      <div class="bg-gradient-to-b from-rose-50 to-white rounded-3xl border-2 border-rose-400 p-5 shadow-pop-pink">
+        <div class="flex items-center gap-3 mb-4">
+          <img src="chibi_uta.jpg" class="w-16 h-16 rounded-full border-2 border-rose-400 object-cover shadow">
+          <div>
+            <span class="text-xs font-rounded font-extrabold bg-rose-100 text-rose-900 px-2.5 py-0.5 rounded-full border border-rose-300">🎤 Code : Hyper-Vocalist</span>
+            <h2 class="font-rounded font-extrabold text-xl text-slate-800 mt-1">緋宮 詩羽 <span class="text-xs font-normal text-slate-500">（ひみや うた）</span></h2>
+            <p class="text-xs text-rose-800 font-bold">157cm / 47kg / B83 W57 H84 / 動画クリエイター・歌い手</p>
+          </div>
+        </div>
+        <img src="profile_03_himiya_uta.jpg" class="w-full rounded-2xl border-2 border-rose-300 shadow-sm mb-3">
+        <p class="text-xs text-slate-700 bg-white p-3 rounded-xl border border-rose-200 font-medium">
+          「はいみなさんこんにちはー！今日も最高にブチ上がっていこうぜー！なんとかなるって！🔥」
+        </p>
+      </div>
+
+      <!-- 4. 黒曜 怜衣（ミッドナイトネイビー・紺色系） -->
+      <div class="bg-gradient-to-b from-[#EBF0FA] to-white rounded-3xl border-2 border-[#2B4270] p-5 shadow-pop-navy">
+        <div class="flex items-center gap-3 mb-4">
+          <img src="chibi_rei.jpg" class="w-16 h-16 rounded-full border-2 border-[#1E3A8A] object-cover shadow">
+          <div>
+            <span class="text-xs font-rounded font-extrabold bg-[#DBE4F7] text-[#172554] px-2.5 py-0.5 rounded-full border border-[#2B4270]/40">⚖️ Code : Designer-Law</span>
+            <h2 class="font-rounded font-extrabold text-xl text-[#172554] mt-1">黒曜 怜衣 <span class="text-xs font-normal text-slate-500">（こくよう れい）</span></h2>
+            <p class="text-xs text-[#1E3A8A] font-bold">171cm / 51kg / B80 W55 H83 / デザイナー・法務倫理</p>
+          </div>
+        </div>
+        <img src="profile_04_kokuyo_rei.jpg" class="w-full rounded-2xl border-2 border-[#2B4270] shadow-sm mb-3">
+        <p class="text-xs text-[#172554] bg-white p-3 rounded-xl border border-[#2B4270]/40 font-medium">
+          「……別に、あんたたちが楽しそうだから見てるだけ。美しいものも、正しいものも、どちらも守りたいだけ。」
+        </p>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

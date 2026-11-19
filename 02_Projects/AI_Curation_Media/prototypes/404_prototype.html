@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 Not Found // ページが見つかりません - SNSにゅーす (Social Media News)</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      background-color: #FFFDF9;
+      background-image: radial-gradient(#FFE4E6 1.5px, transparent 1.5px), radial-gradient(#EBF0FA 1.5px, #FFFDF9 1.5px);
+      background-size: 40px 40px;
+      background-position: 0 0, 20px 20px;
+      color: #33272a;
+    }
+    .font-rounded {
+      font-family: 'M PLUS Rounded 1c', sans-serif;
+    }
+    .shadow-pop {
+      box-shadow: 4px 4px 0px #33272a;
+    }
+    .shadow-pop-pink {
+      box-shadow: 4px 4px 0px #E11D48;
+    }
+    .shadow-pop-sm {
+      box-shadow: 2px 2px 0px #33272a;
+    }
+    .pop-btn {
+      transition: all 0.15s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .pop-btn:hover {
+      transform: translateY(-2px) scale(1.01);
+    }
+    .pop-btn:active {
+      transform: translateY(2px) scale(0.98);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between">
+
+  <!-- ヘッダー -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b-2 border-orange-100 px-4 py-2.5 flex items-center justify-between shadow-sm">
+    <a href="top_page_prototype.html" class="flex items-center gap-2.5">
+      <img src="favicon_512.png" alt="SNSにゅーす" class="w-10 h-10 rounded-2xl object-cover shadow-sm border-2 border-rose-200">
+      <div>
+        <span class="font-rounded font-extrabold text-lg sm:text-xl text-slate-800">SNS<span class="text-rose-500">にゅーす</span></span>
+        <span class="block text-[10px] font-bold text-slate-400">Social Media News</span>
+      </div>
+    </a>
+    <div class="flex items-center gap-2">
+      <a href="top_page_prototype.html" class="px-4 py-2 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-rounded font-bold text-xs transition">
+        🏠 トップへ戻る
+      </a>
+      <a href="character_design_gallery.html" class="px-3.5 py-2 rounded-full bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-300 font-rounded font-extrabold text-xs transition">
+        ✨ Characters
+      </a>
+    </div>
+  </header>
+
+  <!-- メインコンテンツ -->
+  <main class="max-w-4xl mx-auto px-4 py-8 sm:py-12 flex-1 flex flex-col items-center justify-center text-center">
+
+    <!-- 公式404 Not Found イラストカード -->
+    <div class="bg-white rounded-3xl border-3 border-slate-800 p-4 sm:p-6 shadow-pop mb-8 max-w-3xl w-full">
+      <div class="rounded-2xl overflow-hidden border-2 border-slate-200 shadow-sm relative mb-4">
+        <img src="404_error_4girls.jpg" alt="404 Not Found 4人娘イラスト" class="w-full h-auto object-cover">
+      </div>
+
+      <div class="space-y-2">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-rose-100 text-rose-700 font-rounded font-extrabold text-xs border border-rose-200">
+          <span>⚠️</span> 404 NOT FOUND : ページが見つかりませんでした
+        </span>
+        <p class="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed max-w-xl mx-auto pt-1">
+          お探しのページは、一時的にアクセスできないか、URLが変更・削除された可能性があります。<br>
+          乃愛たちの言う通り、一度トップページへ戻って最新の急上昇トレンドをチェックしてみましょう！
+        </p>
+      </div>
+    </div>
+
+    <!-- アクションボタンエリア（トップへのボタン ＆ 急上昇を見るボタン） -->
+    <div class="flex flex-col sm:flex-row items-center gap-3.5 w-full max-w-md justify-center">
+      <a href="top_page_prototype.html" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-gradient-to-r from-rose-500 to-pink-600 hover:from-rose-600 hover:to-pink-700 text-white font-rounded font-extrabold text-sm shadow-pop-pink pop-btn flex items-center justify-center gap-2">
+        <span>🏠</span>
+        <span>SNSにゅーす トップページへ戻る</span>
+      </a>
+      <a href="top_page_prototype.html?sns=all" class="w-full sm:w-auto px-6 py-4 rounded-2xl bg-white hover:bg-slate-50 text-slate-800 border-2 border-slate-800 font-rounded font-extrabold text-sm shadow-pop-sm pop-btn flex items-center justify-center gap-2">
+        <span>🔥</span>
+        <span>いま話題のトレンドを見る</span>
+      </a>
+    </div>
+
+  </main>
+
+  <!-- フッター -->
+  <footer class="bg-slate-900 text-slate-400 text-xs py-6 px-4 border-t-4 border-rose-500 text-center">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
+      <div>
+        <span class="font-rounded font-extrabold text-white text-sm">SNSにゅーす (Social Media News)</span>
+        <span class="ml-2 text-[11px] text-slate-500">https://sns-news.jp</span>
+      </div>
+      <p class="text-[11px] text-slate-500">© 2026 SNSにゅーす / Social Media News. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

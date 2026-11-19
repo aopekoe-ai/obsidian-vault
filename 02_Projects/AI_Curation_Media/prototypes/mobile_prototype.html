@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SNSにゅーす (Social Media News) - スマホ専用UIプロトタイプ</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <meta property="og:image" content="ogp_banner_1200x630.jpg">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      background-color: #1E1B2E;
+      color: #33272a;
+    }
+    .font-rounded {
+      font-family: 'M PLUS Rounded 1c', sans-serif;
+    }
+    .phone-frame {
+      width: 390px;
+      height: 844px;
+      background-color: #FFFDF9;
+      border-radius: 44px;
+      box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.7), 0 0 0 12px #2D2A40, 0 0 0 14px #45405E;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .shadow-pop-sm {
+      box-shadow: 2px 2px 0px #33272a;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center p-4 lg:p-8">
+
+  <!-- 上部コントロールパネル（PCプレビュー用） -->
+  <div class="mb-5 text-center">
+    <div class="inline-flex items-center gap-2 bg-rose-500/20 border border-rose-400/40 text-rose-200 text-xs font-bold px-3.5 py-1.5 rounded-full mb-2">
+      <span>📱 スマホ特化型 UIプロトタイプ (390×844px)</span>
+    </div>
+    <h1 class="text-white font-rounded font-extrabold text-lg sm:text-xl mb-3">画面切り替えプレビュー（髪色準拠カラー＆「AI」表記対応）</h1>
+    <div class="inline-flex bg-slate-800 p-1.5 rounded-2xl border border-slate-700 gap-1.5">
+      <button id="btnViewHome" onclick="switchMobileView('home')" class="px-4 py-2 rounded-xl text-xs font-rounded font-bold bg-rose-500 text-white shadow transition">
+        🏠 ① トップ一覧画面
+      </button>
+      <button id="btnViewCharacters" onclick="switchMobileView('characters')" class="px-4 py-2 rounded-xl text-xs font-rounded font-bold text-slate-300 hover:text-white transition">
+        ✨ ② Characters紹介
+      </button>
+      <button id="btnViewArticle" onclick="switchMobileView('article')" class="px-4 py-2 rounded-xl text-xs font-rounded font-bold text-slate-300 hover:text-white transition">
+        💬 ③ 記事＆4人娘掛け合い
+      </button>
+    </div>
+  </div>
+
+  <!-- スマホフレーム本体 -->
+  <div class="phone-frame">
+
+    <!-- iOSステータスバーモック -->
+    <div class="bg-white px-6 pt-3 pb-1.5 flex justify-between items-center text-[11px] font-bold text-slate-700 shrink-0 select-none z-30">
+      <span>9:41</span>
+      <div class="w-24 h-4 bg-black rounded-full mx-auto"></div>
+      <div class="flex items-center gap-1">
+        <span>5G</span>
+        <span>🔋100%</span>
+      </div>
+    </div>
+
+    <!-- 共通アプリヘッダー -->
+    <header class="bg-white/95 backdrop-blur border-b border-orange-100 px-3.5 py-2 flex items-center justify-between shrink-0 z-20">
+      <div class="flex items-center gap-2" onclick="switchMobileView('home')">
+        <img src="favicon_512.png" alt="SNSにゅーす" class="w-8 h-8 rounded-xl object-cover shadow-sm border border-rose-200">
+        <div>
+          <span class="font-rounded font-extrabold text-sm tracking-tight text-slate-800 block leading-none">
+            SNS<span class="text-rose-500">にゅーす</span>
+          </span>
+          <span class="text-[9px] text-slate-400 font-bold">Social Media News</span>
+        </div>
+      </div>
+
+      <!-- 4キャラ ミニちびアイコン（黄色・緑・赤・紺） -->
+      <div class="flex items-center -space-x-1.5">
+        <img src="chibi_noa.jpg" alt="AI 乃愛" class="w-7 h-7 rounded-full border-2 border-amber-400 object-cover shadow-sm">
+        <img src="chibi_mei.jpg" alt="AI 芽依" class="w-7 h-7 rounded-full border-2 border-emerald-400 object-cover shadow-sm">
+        <img src="chibi_uta.jpg" alt="AI 詩羽" class="w-7 h-7 rounded-full border-2 border-rose-400 object-cover shadow-sm">
+        <img src="chibi_rei.jpg" alt="AI 怜衣" class="w-7 h-7 rounded-full border-2 border-[#1E3A8A] object-cover shadow-sm">
+      </div>
+    </header>
+
+    <!-- 横スクロール SNS + Characters メニューバー -->
+    <div class="bg-white border-b border-orange-100 px-3 py-2 flex items-center gap-1.5 overflow-x-auto no-scrollbar shrink-0 z-20">
+      <button onclick="switchMobileView('home')" id="navPillAll" class="px-3 py-1 rounded-full bg-slate-800 text-white font-rounded font-bold text-[11px] whitespace-nowrap">
+        🌟 総合
+      </button>
+      <button onclick="switchMobileView('home')" class="px-2.5 py-1 rounded-full bg-slate-100 text-slate-700 font-rounded font-bold text-[11px] whitespace-nowrap">
+        𝕏 X(旧Twitter)
+      </button>
+      <button onclick="switchMobileView('home')" class="px-2.5 py-1 rounded-full bg-red-50 text-red-600 font-rounded font-bold text-[11px] whitespace-nowrap">
+        ▶️ YouTube
+      </button>
+      <button onclick="switchMobileView('home')" class="px-2.5 py-1 rounded-full bg-pink-50 text-pink-600 font-rounded font-bold text-[11px] whitespace-nowrap">
+        🎵 TikTok
+      </button>
+      <button onclick="switchMobileView('home')" class="px-2.5 py-1 rounded-full bg-purple-50 text-purple-600 font-rounded font-bold text-[11px] whitespace-nowrap">
+        📸 Insta
+      </button>
+      <!-- SNSメニューの次に Characters / Atelier Rei / About Us メニュー -->
+      <button onclick="switchMobileView('characters')" id="navPillChars" class="px-3 py-1 rounded-full bg-gradient-to-r from-amber-50 via-rose-50 to-[#EBF0FA] border border-rose-300 text-rose-700 font-rounded font-extrabold text-[11px] whitespace-nowrap shadow-sm">
+        ✨ Characters
+      </button>
+      <a href="atelier_rei_prototype.html" class="px-3 py-1 rounded-full bg-[#EBF0FA] border border-[#2B4270] text-[#172554] font-rounded font-extrabold text-[11px] whitespace-nowrap shadow-sm">
+        🛍️ Atelier Rei
+      </a>
+      <a href="atelier_rei_prototype.html#about" class="px-2.5 py-1 rounded-full bg-slate-100 text-slate-700 font-rounded font-bold text-[11px] whitespace-nowrap">
+        📖 About Us
+      </a>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- VIEW 1: スマホ版 トップ一覧画面 (HOME)       -->
+    <!-- ========================================== -->
+    <div id="mobileHomeView" class="flex-1 overflow-y-auto no-scrollbar pb-20">
+
+      <!-- ヒーローバナー（通常ver集合イラスト＋ちびキャラ） -->
+      <div class="p-3.5">
+        <div class="bg-gradient-to-br from-amber-50 via-rose-50 to-[#EBF0FA] rounded-2xl p-3 border-2 border-rose-200 shadow-sm">
+          <div class="relative rounded-xl overflow-hidden mb-2.5 border border-white shadow">
+            <img src="ogp_banner.jpg" alt="SNSにゅーす 公式OGPバナー" class="w-full h-40 object-cover">
+          </div>
+          <!-- 4人娘ミニ紹介バー（AI 表記＋黄色/緑/赤/紺） -->
+          <div class="grid grid-cols-4 gap-1.5 text-center">
+            <div onclick="switchMobileView('characters')" class="bg-amber-50/90 rounded-xl p-1.5 border border-amber-300 cursor-pointer">
+              <img src="chibi_noa.jpg" class="w-9 h-9 rounded-full mx-auto border-2 border-amber-400 object-cover">
+              <div class="text-[10px] font-rounded font-extrabold text-amber-950 mt-0.5">AI 乃愛</div>
+              <div class="text-[8px] text-amber-700 font-bold">IT天才</div>
+            </div>
+            <div onclick="switchMobileView('characters')" class="bg-emerald-50/90 rounded-xl p-1.5 border border-emerald-300 cursor-pointer">
+              <img src="chibi_mei.jpg" class="w-9 h-9 rounded-full mx-auto border-2 border-emerald-400 object-cover">
+              <div class="text-[10px] font-rounded font-extrabold text-emerald-950 mt-0.5">AI 芽依</div>
+              <div class="text-[8px] text-emerald-700 font-bold">栄養/初心</div>
+            </div>
+            <div onclick="switchMobileView('characters')" class="bg-rose-50/90 rounded-xl p-1.5 border border-rose-300 cursor-pointer">
+              <img src="chibi_uta.jpg" class="w-9 h-9 rounded-full mx-auto border-2 border-rose-400 object-cover">
+              <div class="text-[10px] font-rounded font-extrabold text-rose-950 mt-0.5">AI 詩羽</div>
+              <div class="text-[8px] text-rose-700 font-bold">動画/歌姫</div>
+            </div>
+            <div onclick="switchMobileView('characters')" class="bg-[#EBF0FA] rounded-xl p-1.5 border border-[#2B4270] cursor-pointer">
+              <img src="chibi_rei.jpg" class="w-9 h-9 rounded-full mx-auto border-2 border-[#1E3A8A] object-cover">
+              <div class="text-[10px] font-rounded font-extrabold text-[#172554] mt-0.5">AI 怜衣</div>
+              <div class="text-[8px] text-[#1E3A8A] font-bold">法務/美術</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 記事カード1（タップで4キャラ切り替え可能） -->
+      <div class="px-3.5 mb-4">
+        <div class="bg-white rounded-2xl border-2 border-slate-800 p-3.5 shadow-pop-sm">
+          <div class="flex items-center justify-between mb-2">
+            <span class="bg-slate-900 text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full">𝕏 トレンド 1位</span>
+            <span class="text-[10px] font-bold text-rose-500">🔥 14.2万 Likes</span>
+          </div>
+          <h2 onclick="switchMobileView('article')" class="font-rounded font-extrabold text-sm text-slate-800 leading-snug mb-2.5 cursor-pointer hover:text-rose-600">
+            次世代AIエージェントがブラウザ操作を完全自動化！エンジニア不要論は本当か？
+          </h2>
+
+          <!-- スマホ用 4キャラちびアイコン切り替えタブ（AI 表記＋髪色カラー） -->
+          <div class="bg-orange-50/70 rounded-xl p-2.5 border border-orange-100">
+            <div class="grid grid-cols-4 gap-1 mb-2">
+              <button onclick="selectMobileCardChar('noa')" id="mTab-noa" class="flex flex-col items-center py-1 rounded-lg bg-amber-50 border-2 border-amber-400">
+                <img src="chibi_noa.jpg" class="w-6 h-6 rounded-full object-cover border border-amber-400">
+                <span class="text-[9px] font-rounded font-extrabold text-amber-950 mt-0.5">AI 乃愛</span>
+              </button>
+              <button onclick="selectMobileCardChar('mei')" id="mTab-mei" class="flex flex-col items-center py-1 rounded-lg bg-white/70 border border-transparent opacity-70">
+                <img src="chibi_mei.jpg" class="w-6 h-6 rounded-full object-cover">
+                <span class="text-[9px] font-rounded font-bold text-emerald-950 mt-0.5">AI 芽依</span>
+              </button>
+              <button onclick="selectMobileCardChar('uta')" id="mTab-uta" class="flex flex-col items-center py-1 rounded-lg bg-white/70 border border-transparent opacity-70">
+                <img src="chibi_uta.jpg" class="w-6 h-6 rounded-full object-cover">
+                <span class="text-[9px] font-rounded font-bold text-rose-950 mt-0.5">AI 詩羽</span>
+              </button>
+              <button onclick="selectMobileCardChar('rei')" id="mTab-rei" class="flex flex-col items-center py-1 rounded-lg bg-white/70 border border-transparent opacity-70">
+                <img src="chibi_rei.jpg" class="w-6 h-6 rounded-full object-cover">
+                <span class="text-[9px] font-rounded font-bold text-[#172554] mt-0.5">AI 怜衣</span>
+              </button>
+            </div>
+
+            <!-- 吹き出し表示（ちびキャラアイコン付き） -->
+            <div id="mBubbleBox" class="bg-amber-50 border border-amber-300 rounded-xl p-2.5 flex items-start gap-2.5">
+              <img id="mBubbleImg" src="chibi_noa.jpg" class="w-9 h-9 rounded-full border-2 border-amber-400 object-cover shrink-0">
+              <div class="text-xs leading-relaxed">
+                <span id="mBubbleName" class="font-rounded font-extrabold text-amber-800 text-[10px] block mb-0.5">AI 乃愛（天才プログラマー）</span>
+                <p id="mBubbleText" class="text-slate-700 font-medium text-[11px]">「DOM解析とVisionモデルのハイブリッドね。O(N)でタスク分解してるけど、例外処理の甘いコードを書いてる層が淘汰されるだけよ。」</p>
+              </div>
+            </div>
+          </div>
+
+          <button onclick="switchMobileView('article')" class="mt-2.5 w-full py-2 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-600 font-rounded font-extrabold text-xs border border-rose-200 flex items-center justify-center gap-1 transition">
+            <span>💬 4人娘の掛け合い（全12発言）を読む</span>
+            <span>→</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- 記事カード2 -->
+      <div class="px-3.5 mb-4">
+        <div onclick="switchMobileView('article')" class="bg-white rounded-2xl border-2 border-slate-800 p-3.5 shadow-pop-sm cursor-pointer">
+          <div class="flex items-center justify-between mb-2">
+            <span class="bg-red-600 text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full">▶️ YouTube 急上昇</span>
+            <span class="text-[10px] font-bold text-amber-600">⚡ 98万 Views</span>
+          </div>
+          <h2 class="font-rounded font-extrabold text-sm text-slate-800 leading-snug mb-2.5">
+            話題の「MCTオイル×完全無欠コーヒー」をプログラマーが1ヶ月検証した結果！
+          </h2>
+          <div class="bg-emerald-50 border border-emerald-300 rounded-xl p-2.5 flex items-start gap-2.5">
+            <img src="chibi_mei.jpg" class="w-9 h-9 rounded-full border-2 border-emerald-400 object-cover shrink-0">
+            <div>
+              <span class="font-rounded font-extrabold text-emerald-800 text-[10px] block mb-0.5">AI 芽依（ケトジェニックの女王）</span>
+              <p class="text-slate-700 font-medium text-[11px]">「ついに時代が私に追いつきましたね！糖質スパイクを防げば午後のコーディングも眠くなりませんよ✨」</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ========================================== -->
+    <!-- VIEW 2: Characters 紹介画面（AI表記なし）   -->
+    <!-- ========================================== -->
+    <div id="mobileCharactersView" class="hidden flex-1 overflow-y-auto no-scrollbar pb-20 bg-gradient-to-b from-amber-50/40 via-white to-[#EBF0FA]/40">
+      <div class="p-3.5">
+        <div class="text-center mb-3">
+          <span class="text-[10px] font-rounded font-extrabold px-2.5 py-0.5 rounded-full bg-rose-100 text-rose-600">OFFICIAL CHARACTERS</span>
+          <h2 class="font-rounded font-extrabold text-base text-slate-800 mt-1">AIキュレーション 4人娘</h2>
+          <p class="text-[11px] text-slate-500">タップで全身プロフィール設定画を拡大チェック！</p>
+        </div>
+
+        <!-- キャラ1: 有栖川 乃愛（黄色・アンバー系） -->
+        <div class="bg-amber-50/70 rounded-2xl border-2 border-amber-400 p-3 mb-3 shadow-sm">
+          <div class="flex items-center gap-2.5 mb-2">
+            <img src="chibi_noa.jpg" class="w-12 h-12 rounded-full border-2 border-amber-400 object-cover shadow">
+            <div>
+              <span class="text-[9px] font-bold bg-amber-100 text-amber-900 px-2 py-0.5 rounded-full border border-amber-300">💻 Programmer</span>
+              <h3 class="font-rounded font-extrabold text-sm text-slate-800 mt-0.5">有栖川 乃愛 <span class="text-[10px] font-normal text-slate-500">（ありすがわ のあ）</span></h3>
+              <p class="text-[10px] text-amber-800 font-bold">162cm / 45kg / 天才プログラマー・AI開発</p>
+            </div>
+          </div>
+          <img src="profile_01_arisugawa_noa.jpg" alt="有栖川 乃愛 プロフィール" class="w-full rounded-xl border border-amber-300 mb-2">
+          <p class="text-[11px] text-slate-700 bg-white p-2 rounded-lg border border-amber-200 font-medium">
+            「……私にできないことはない。だって、私は天才だから。」
+          </p>
+        </div>
+
+        <!-- キャラ2: 若葉 芽依（エメラルドグリーン系） -->
+        <div class="bg-emerald-50/70 rounded-2xl border-2 border-emerald-400 p-3 mb-3 shadow-sm">
+          <div class="flex items-center gap-2.5 mb-2">
+            <img src="chibi_mei.jpg" class="w-12 h-12 rounded-full border-2 border-emerald-400 object-cover shadow">
+            <div>
+              <span class="text-[9px] font-bold bg-emerald-100 text-emerald-900 px-2 py-0.5 rounded-full border border-emerald-300">🥑 Ketogenic-Queen</span>
+              <h3 class="font-rounded font-extrabold text-sm text-slate-800 mt-0.5">若葉 芽依 <span class="text-[10px] font-normal text-slate-500">（わかば めい）</span></h3>
+              <p class="text-[10px] text-emerald-800 font-bold">162cm / 45kg / 栄養・代謝コンサルタント</p>
+            </div>
+          </div>
+          <img src="profile_02_wakaba_mei.jpg" alt="若葉 芽依 プロフィール" class="w-full rounded-xl border border-emerald-300 mb-2">
+          <p class="text-[11px] text-slate-700 bg-white p-2 rounded-lg border border-emerald-200 font-medium">
+            「それ、完全に糖質中毒の脳になってますよ！良質な脂質を摂りましょう✨」
+          </p>
+        </div>
+
+        <!-- キャラ3: 緋宮 詩羽（クリムゾンレッド系） -->
+        <div class="bg-rose-50/70 rounded-2xl border-2 border-rose-400 p-3 mb-3 shadow-sm">
+          <div class="flex items-center gap-2.5 mb-2">
+            <img src="chibi_uta.jpg" class="w-12 h-12 rounded-full border-2 border-rose-400 object-cover shadow">
+            <div>
+              <span class="text-[9px] font-bold bg-rose-100 text-rose-900 px-2 py-0.5 rounded-full border border-rose-300">🎤 Hyper-Vocalist</span>
+              <h3 class="font-rounded font-extrabold text-sm text-slate-800 mt-0.5">緋宮 詩羽 <span class="text-[10px] font-normal text-slate-500">（ひみや うた）</span></h3>
+              <p class="text-[10px] text-rose-800 font-bold">157cm / 47kg / 動画クリエイター・歌い手</p>
+            </div>
+          </div>
+          <img src="profile_03_himiya_uta.jpg" alt="緋宮 詩羽 プロフィール" class="w-full rounded-xl border border-rose-300 mb-2">
+          <p class="text-[11px] text-slate-700 bg-white p-2 rounded-lg border border-rose-200 font-medium">
+            「はいみなさんこんにちはー！今日も最高にブチ上がっていこうぜー！🔥」
+          </p>
+        </div>
+
+        <!-- キャラ4: 黒曜 怜衣（ミッドナイトネイビー・紺色系） -->
+        <div class="bg-[#EBF0FA] rounded-2xl border-2 border-[#2B4270] p-3 mb-3 shadow-sm">
+          <div class="flex items-center gap-2.5 mb-2">
+            <img src="chibi_rei.jpg" class="w-12 h-12 rounded-full border-2 border-[#1E3A8A] object-cover shadow">
+            <div>
+              <span class="text-[9px] font-bold bg-[#DBE4F7] text-[#172554] px-2 py-0.5 rounded-full border border-[#2B4270]/40">⚖️ Designer-Law</span>
+              <h3 class="font-rounded font-extrabold text-sm text-[#172554] mt-0.5">黒曜 怜衣 <span class="text-[10px] font-normal text-slate-500">（こくよう れい）</span></h3>
+              <p class="text-[10px] text-[#1E3A8A] font-bold">171cm / 51kg / デザイナー・法務倫理</p>
+            </div>
+          </div>
+          <img src="profile_04_kokuyo_rei.jpg" alt="黒曜 怜衣 プロフィール" class="w-full rounded-xl border border-[#2B4270] mb-2">
+          <p class="text-[11px] text-[#172554] bg-white p-2 rounded-lg border border-[#2B4270]/40 font-medium">
+            「……美しいものも、正しいものも、どちらも守りたいだけ。」
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- VIEW 3: 記事詳細＆ちびキャラ掛け合い画面     -->
+    <!-- ========================================== -->
+    <div id="mobileArticleView" class="hidden flex-1 overflow-y-auto no-scrollbar pb-20">
+      <div class="p-3.5">
+        <button onclick="switchMobileView('home')" class="text-xs font-rounded font-bold text-slate-500 mb-2 flex items-center gap-1">
+          ← トレンド一覧へ戻る
+        </button>
+
+        <div class="bg-white rounded-2xl border-2 border-slate-800 p-3.5 mb-3 shadow-pop-sm">
+          <span class="bg-slate-900 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">𝕏 トレンド 1位</span>
+          <h1 class="font-rounded font-extrabold text-base text-slate-800 mt-1.5 leading-snug">
+            次世代AIエージェントがブラウザ操作を完全自動化！エンジニア不要論は本当か？
+          </h1>
+          <div class="mt-2 bg-amber-50 rounded-xl p-2.5 text-[11px] text-slate-700 space-y-1 border border-amber-200">
+            <div class="font-rounded font-extrabold text-amber-800">💡 3行まとめ</div>
+            <p>・AIが画面認識＋ブラウザ自動操作まで一気通貫で実行可能に</p>
+            <p>・定型実装は10倍速くなる一方、設計と責任の重要性が急上昇</p>
+            <p>・4人娘が技術・初心者・クリエイター・法務の4視点で徹底討論！</p>
+          </div>
+        </div>
+
+        <!-- マンガver会議バナー -->
+        <div class="relative rounded-xl overflow-hidden mb-3 border border-slate-300">
+          <img src="03_4girls_manga_ver.jpg" class="w-full h-24 object-cover">
+          <div class="absolute inset-0 bg-slate-900/60 flex items-center justify-between px-3">
+            <div class="text-white">
+              <span class="text-[9px] bg-rose-500 px-2 py-0.5 rounded-full font-bold">ROUND 1 / 3</span>
+              <p class="font-rounded font-extrabold text-xs mt-0.5">ちびキャラ4人娘の徹底討論チャット</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ちびキャラ吹き出し会話ストリーム（AI 表記＋黄色/緑/赤/紺） -->
+        <div class="space-y-3">
+          <!-- AI 乃愛（黄色・アンバー） -->
+          <div class="flex items-start gap-2">
+            <img src="chibi_noa.jpg" class="w-10 h-10 rounded-full border-2 border-amber-400 object-cover shrink-0 shadow-sm">
+            <div class="bg-amber-50 border-2 border-amber-300 rounded-2xl rounded-tl-none p-2.5 flex-1">
+              <div class="text-[10px] font-rounded font-extrabold text-amber-900 mb-0.5">AI 乃愛（天才プログラマー）</div>
+              <p class="text-xs text-slate-800 leading-relaxed">「結論から言うと、コピペだけの層が消えるだけよ。状態遷移の設計とセキュリティ境界は人間にしか定義できないわ。」</p>
+            </div>
+          </div>
+
+          <!-- AI 芽依（エメラルドグリーン） -->
+          <div class="flex items-start gap-2">
+            <img src="chibi_mei.jpg" class="w-10 h-10 rounded-full border-2 border-emerald-400 object-cover shrink-0 shadow-sm">
+            <div class="bg-emerald-50 border-2 border-emerald-300 rounded-2xl rounded-tl-none p-2.5 flex-1">
+              <div class="text-[10px] font-rounded font-extrabold text-emerald-900 mb-0.5">AI 芽依（IT初心者＆ケト女王）</div>
+              <p class="text-xs text-slate-800 leading-relaxed">「乃愛ちゃん、つまりプログラミングを知らない私でも『毎朝のケト食材の最安値を比較して注文するアプリ』が言葉だけで作れちゃうんですか！？」</p>
+            </div>
+          </div>
+
+          <!-- AI 詩羽（クリムゾンレッド） -->
+          <div class="flex items-start gap-2">
+            <img src="chibi_uta.jpg" class="w-10 h-10 rounded-full border-2 border-rose-400 object-cover shrink-0 shadow-sm">
+            <div class="bg-rose-50 border-2 border-rose-300 rounded-2xl rounded-tl-none p-2.5 flex-1">
+              <div class="text-[10px] font-rounded font-extrabold text-rose-900 mb-0.5">AI 詩羽（動画クリエイター・歌姫）</div>
+              <p class="text-xs text-slate-800 leading-relaxed">「それ最高じゃん！！『歌ってみた動画の字幕入れとSNS告知を全自動化する神AI』を今すぐ配信で作ってみようぜー！🔥」</p>
+            </div>
+          </div>
+
+          <!-- AI 怜衣（ミッドナイトネイビー・紺色） -->
+          <div class="flex items-start gap-2">
+            <img src="chibi_rei.jpg" class="w-10 h-10 rounded-full border-2 border-[#1E3A8A] object-cover shrink-0 shadow-sm">
+            <div class="bg-[#EBF0FA] border-2 border-[#2B4270] rounded-2xl rounded-tl-none p-2.5 flex-1">
+              <div class="text-[10px] font-rounded font-extrabold text-[#172554] mb-0.5">AI 怜衣（デザイナー・法務倫理）</div>
+              <p class="text-xs text-[#172554] leading-relaxed">「……詩羽、暴走しないで。自動ログインやスクレイピングは各プラットフォームの利用規約違反でアカウント凍結されるリスクがあるわ。」</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- スマホ下部固定ナビゲーションバー -->
+    <nav class="bg-white/95 backdrop-blur border-t border-orange-100 px-4 py-2 flex justify-around items-center shrink-0 z-30">
+      <button onclick="switchMobileView('home')" class="flex flex-col items-center text-rose-500">
+        <span class="text-base">🏠</span>
+        <span class="text-[9px] font-rounded font-extrabold">トレンド</span>
+      </button>
+      <button onclick="switchMobileView('article')" class="flex flex-col items-center text-slate-500 hover:text-rose-500">
+        <span class="text-base">💬</span>
+        <span class="text-[9px] font-rounded font-bold">4人娘会議</span>
+      </button>
+      <button onclick="switchMobileView('characters')" class="flex flex-col items-center text-slate-500 hover:text-rose-500">
+        <span class="text-base">✨</span>
+        <span class="text-[9px] font-rounded font-bold">Characters</span>
+      </button>
+    </nav>
+
+  </div>
+
+  <script>
+    const mCharData = {
+      noa: {
+        name: 'AI 乃愛（天才プログラマー）',
+        text: '「DOM解析とVisionモデルのハイブリッドね。O(N)でタスク分解してるけど、例外処理の甘いコードを書いてる層が淘汰されるだけよ。」',
+        img: 'chibi_noa.jpg',
+        boxClass: 'bg-amber-50 border border-amber-300 rounded-xl p-2.5 flex items-start gap-2.5',
+        imgClass: 'w-9 h-9 rounded-full border-2 border-amber-400 object-cover shrink-0',
+        nameClass: 'font-rounded font-extrabold text-amber-800 text-[10px] block mb-0.5',
+        tabActive: 'flex flex-col items-center py-1 rounded-lg bg-amber-50 border-2 border-amber-400',
+        nameColor: 'text-amber-950'
+      },
+      mei: {
+        name: 'AI 芽依（ケトジェニックの女王）',
+        text: '「難しい設定が自動化されて睡眠時間が増えるなら大賛成です！睡眠不足はコルチゾールが増えて代謝が落ちちゃいますからね🥑」',
+        img: 'chibi_mei.jpg',
+        boxClass: 'bg-emerald-50 border border-emerald-300 rounded-xl p-2.5 flex items-start gap-2.5',
+        imgClass: 'w-9 h-9 rounded-full border-2 border-emerald-400 object-cover shrink-0',
+        nameClass: 'font-rounded font-extrabold text-emerald-800 text-[10px] block mb-0.5',
+        tabActive: 'flex flex-col items-center py-1 rounded-lg bg-emerald-50 border-2 border-emerald-400',
+        nameColor: 'text-emerald-950'
+      },
+      uta: {
+        name: 'AI 詩羽（ハイパーボーカリスト）',
+        text: '「これ配信でリアルタイム実況したら絶対バズるっしょ！！『AIに1時間でゲーム作らせてみた』企画、今夜やってみようぜー！🎤」',
+        img: 'chibi_uta.jpg',
+        boxClass: 'bg-rose-50 border border-rose-300 rounded-xl p-2.5 flex items-start gap-2.5',
+        imgClass: 'w-9 h-9 rounded-full border-2 border-rose-400 object-cover shrink-0',
+        nameClass: 'font-rounded font-extrabold text-rose-800 text-[10px] block mb-0.5',
+        tabActive: 'flex flex-col items-center py-1 rounded-lg bg-rose-50 border-2 border-rose-400',
+        nameColor: 'text-rose-950'
+      },
+      rei: {
+        name: 'AI 怜衣（デザイナー・法務倫理）',
+        text: '「……自動操作エージェントが外部サイトに過剰アクセスすれば利用規約違反になり得るわ。法務面のガードレール設計が必須よ。」',
+        img: 'chibi_rei.jpg',
+        boxClass: 'bg-[#EBF0FA] border border-[#2B4270] rounded-xl p-2.5 flex items-start gap-2.5',
+        imgClass: 'w-9 h-9 rounded-full border-2 border-[#1E3A8A] object-cover shrink-0',
+        nameClass: 'font-rounded font-extrabold text-[#172554] text-[10px] block mb-0.5',
+        tabActive: 'flex flex-col items-center py-1 rounded-lg bg-[#EBF0FA] border-2 border-[#2B4270]',
+        nameColor: 'text-[#172554]'
+      }
+    };
+
+    function selectMobileCardChar(charKey) {
+      ['noa', 'mei', 'uta', 'rei'].forEach(k => {
+        const btn = document.getElementById('mTab-' + k);
+        if (k === charKey) {
+          btn.className = mCharData[k].tabActive;
+        } else {
+          btn.className = 'flex flex-col items-center py-1 rounded-lg bg-white/70 border border-transparent opacity-70';
+        }
+      });
+      const d = mCharData[charKey];
+      document.getElementById('mBubbleBox').className = d.boxClass;
+      document.getElementById('mBubbleImg').src = d.img;
+      document.getElementById('mBubbleImg').className = d.imgClass;
+      document.getElementById('mBubbleName').className = d.nameClass;
+      document.getElementById('mBubbleName').textContent = d.name;
+      document.getElementById('mBubbleText').textContent = d.text;
+    }
+
+    function switchMobileView(view) {
+      document.getElementById('mobileHomeView').classList.toggle('hidden', view !== 'home');
+      document.getElementById('mobileCharactersView').classList.toggle('hidden', view !== 'characters');
+      document.getElementById('mobileArticleView').classList.toggle('hidden', view !== 'article');
+
+      const btnHome = document.getElementById('btnViewHome');
+      const btnChars = document.getElementById('btnViewCharacters');
+      const btnArt = document.getElementById('btnViewArticle');
+
+      btnHome.className = view === 'home'
+        ? 'px-4 py-2 rounded-xl text-xs font-rounded font-bold bg-rose-500 text-white shadow transition'
+        : 'px-4 py-2 rounded-xl text-xs font-rounded font-bold text-slate-300 hover:text-white transition';
+      btnChars.className = view === 'characters'
+        ? 'px-4 py-2 rounded-xl text-xs font-rounded font-bold bg-rose-500 text-white shadow transition'
+        : 'px-4 py-2 rounded-xl text-xs font-rounded font-bold text-slate-300 hover:text-white transition';
+      btnArt.className = view === 'article'
+        ? 'px-4 py-2 rounded-xl text-xs font-rounded font-bold bg-rose-500 text-white shadow transition'
+        : 'px-4 py-2 rounded-xl text-xs font-rounded font-bold text-slate-300 hover:text-white transition';
+    }
+  </script>
+</body>
+</html>

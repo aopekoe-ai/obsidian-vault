@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SNSにゅーす (Social Media News) - Atelier Rei 公式グッズ & About Us</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <meta property="og:image" content="ogp_banner_1200x630.jpg">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      background-color: #FFFDF9;
+      background-image: radial-gradient(#FFE4E6 1.5px, transparent 1.5px), radial-gradient(#EBF0FA 1.5px, #FFFDF9 1.5px);
+      background-size: 40px 40px;
+      background-position: 0 0, 20px 20px;
+      color: #33272a;
+    }
+    .font-rounded {
+      font-family: 'M PLUS Rounded 1c', sans-serif;
+    }
+    .shadow-pop {
+      box-shadow: 4px 4px 0px #33272a;
+    }
+    .shadow-pop-navy {
+      box-shadow: 4px 4px 0px #172554;
+    }
+    .shadow-pop-sm {
+      box-shadow: 2px 2px 0px #33272a;
+    }
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- 共通ヘッダー（確定メニュー順） -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b-2 border-orange-100 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 py-2.5 flex items-center justify-between gap-4">
+      <!-- ロゴ：SNSにゅーす / Social Media News -->
+      <a href="top_page_prototype.html" class="flex items-center gap-2.5 shrink-0">
+        <img src="favicon_512.png" alt="SNSにゅーす" class="w-10 h-10 rounded-2xl object-cover shadow-sm border-2 border-rose-200">
+        <div>
+          <span class="font-rounded font-extrabold text-lg sm:text-xl tracking-tight text-slate-800 block leading-none">
+            SNS<span class="text-rose-500">にゅーす</span>
+          </span>
+          <span class="text-[10px] text-slate-400 font-bold tracking-wider block mt-0.5">Social Media News</span>
+        </div>
+      </a>
+
+      <!-- メインナビゲーション（SNS ➔ Characters ➔ Atelier Rei ➔ About Us） -->
+      <nav class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-1">
+        <a href="top_page_prototype.html" class="px-3 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-rounded font-bold text-xs whitespace-nowrap transition">
+          🌟 総合
+        </a>
+        <a href="top_page_prototype.html" class="px-3 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-rounded font-bold text-xs whitespace-nowrap transition">
+          𝕏 X(Twitter)
+        </a>
+        <a href="top_page_prototype.html" class="px-3 py-1.5 rounded-full bg-red-50 hover:bg-red-100 text-red-600 font-rounded font-bold text-xs whitespace-nowrap transition">
+          ▶️ YouTube
+        </a>
+        <a href="top_page_prototype.html" class="px-3 py-1.5 rounded-full bg-pink-50 hover:bg-pink-100 text-pink-600 font-rounded font-bold text-xs whitespace-nowrap transition">
+          🎵 TikTok
+        </a>
+        <a href="top_page_prototype.html" class="px-3 py-1.5 rounded-full bg-purple-50 hover:bg-purple-100 text-purple-600 font-rounded font-bold text-xs whitespace-nowrap transition">
+          📸 Instagram
+        </a>
+        <a href="character_design_gallery.html" class="px-3 py-1.5 rounded-full bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-300 font-rounded font-extrabold text-xs whitespace-nowrap transition">
+          ✨ Characters
+        </a>
+        <button onclick="switchPageTab('shop')" id="navBtnShop" class="px-3.5 py-1.5 rounded-full bg-[#172554] text-white font-rounded font-extrabold text-xs whitespace-nowrap shadow-sm transition">
+          🛍️ Atelier Rei (Goods)
+        </button>
+        <button onclick="switchPageTab('about')" id="navBtnAbout" class="px-3.5 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-rounded font-extrabold text-xs whitespace-nowrap transition">
+          📖 About Us
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 py-8 flex-1 w-full">
+
+    <!-- ========================================================== -->
+    <!-- TAB 1: Atelier Rei（黒曜 怜衣プロデュース 公式グッズショップ） -->
+    <!-- ========================================================== -->
+    <div id="sectionShop">
+
+      <!-- 怜衣プロデュース ヒーローヘッダー（紺色・ミッドナイトネイビー基調） -->
+      <div class="bg-gradient-to-br from-[#172554] via-[#1E3A8A] to-slate-900 text-white rounded-3xl border-2 border-[#2B4270] p-6 md:p-8 shadow-pop-navy mb-8 relative overflow-hidden">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-6 relative z-10">
+          <div class="flex items-start gap-4 max-w-2xl">
+            <img src="chibi_rei.jpg" alt="黒曜 怜衣" class="w-16 h-16 sm:w-20 sm:h-20 rounded-full border-2 border-blue-300 object-cover shadow-lg shrink-0">
+            <div>
+              <div class="inline-flex items-center gap-2 bg-white/10 border border-white/20 px-3 py-0.5 rounded-full text-[11px] font-rounded font-bold text-blue-200 mb-2">
+                <span>🦋 Produced by KOKUYO REI</span>
+                <span>|</span>
+                <span>Official Concept Store</span>
+              </div>
+              <h1 id="shopHeroTitle" class="font-rounded font-extrabold text-2xl sm:text-3xl tracking-tight">
+                Atelier Rei <span class="text-base sm:text-lg font-normal text-blue-200 ml-1">— 公式グッズ＆アパレル —</span>
+              </h1>
+              <p id="shopHeroQuote" class="text-xs sm:text-sm text-blue-100 mt-2 leading-relaxed bg-slate-950/40 p-3 rounded-2xl border border-white/10">
+                「……普段使いできないようなダサいキャラグッズは、私の美意識が許さないわ。<br class="hidden sm:inline">
+                シルエットと素材感、そして4人のモチーフを日常に溶け込ませたコレクションよ。好きなものを選んでちょうだい。」
+              </p>
+            </div>
+          </div>
+
+          <!-- 国内向け(JP: SUZURI) / 海外向け(EN: Global Store) 切り替えスイッチャー -->
+          <div class="bg-slate-950/60 p-2 rounded-2xl border border-white/15 shrink-0 flex flex-col items-center">
+            <span class="text-[10px] font-bold text-blue-200 mb-1.5">🌐 ストア地域・言語切替 (Region / Store)</span>
+            <div class="flex gap-1.5">
+              <button onclick="switchStoreLang('jp')" id="btnLangJP" class="px-4 py-2 rounded-xl text-xs font-rounded font-extrabold bg-white text-[#172554] shadow transition">
+                🇯🇵 日本国内 (SUZURI)
+              </button>
+              <button onclick="switchStoreLang('en')" id="btnLangEN" class="px-4 py-2 rounded-xl text-xs font-rounded font-extrabold text-slate-300 hover:text-white transition">
+                🌍 Global / EN (Overseas)
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- カテゴリフィルターバー -->
+      <div class="flex flex-wrap items-center justify-between gap-3 mb-6">
+        <div class="flex items-center gap-2 overflow-x-auto no-scrollbar">
+          <button onclick="filterGoods('all')" class="px-4 py-1.5 rounded-full bg-[#172554] text-white font-rounded font-bold text-xs shadow-sm">
+            すべて (All Items)
+          </button>
+          <button onclick="filterGoods('noa')" class="px-3.5 py-1.5 rounded-full bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-300 font-rounded font-bold text-xs">
+            💻 乃愛モデル (Yellow)
+          </button>
+          <button onclick="filterGoods('mei')" class="px-3.5 py-1.5 rounded-full bg-emerald-50 hover:bg-emerald-100 text-emerald-900 border border-emerald-300 font-rounded font-bold text-xs">
+            🥑 芽依モデル (Green)
+          </button>
+          <button onclick="filterGoods('uta')" class="px-3.5 py-1.5 rounded-full bg-rose-50 hover:bg-rose-100 text-rose-900 border border-rose-300 font-rounded font-bold text-xs">
+            🎤 詩羽モデル (Red)
+          </button>
+          <button onclick="filterGoods('rei')" class="px-3.5 py-1.5 rounded-full bg-[#EBF0FA] hover:bg-blue-100 text-[#172554] border border-[#2B4270] font-rounded font-bold text-xs">
+            🦋 怜衣モデル (Navy)
+          </button>
+        </div>
+
+        <div id="storeBadgeInfo" class="text-xs font-bold text-slate-600 bg-white px-3.5 py-1.5 rounded-full border border-slate-200 shadow-sm">
+          📦 配送元：GMOペパボ SUZURI（オンデマンド生産・国内匿名配送対応）
+        </div>
+      </div>
+
+      <!-- ========================================= -->
+      <!-- JP: 国内向け SUZURI 埋め込み・商品グリッド  -->
+      <!-- ========================================= -->
+      <div id="gridStoreJP" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+
+        <!-- 商品カード 1: 乃愛モデル（サンプル画像差し替え枠） -->
+        <div data-char="noa" class="goods-card bg-white rounded-3xl border-2 border-amber-400 overflow-hidden shadow-pop flex flex-col">
+          <div class="relative h-56 bg-gradient-to-br from-amber-50 to-amber-100/60 flex flex-col items-center justify-center p-4 border-b border-amber-200">
+            <!-- 後日差し替え用プレースホルダー -->
+            <div class="w-24 h-24 rounded-2xl bg-white/90 border-2 border-dashed border-amber-400 flex flex-col items-center justify-center text-amber-700 mb-2 shadow-sm">
+              <span class="text-2xl">👕</span>
+              <span class="text-[9px] font-bold mt-1">SAMPLE IMAGE</span>
+            </div>
+            <span class="text-[10px] font-bold text-amber-800 bg-white/80 px-2.5 py-0.5 rounded-full border border-amber-300">
+              ※後日SUZURI商品画像に差し替え
+            </span>
+            <img src="chibi_noa.jpg" class="w-10 h-10 rounded-full border-2 border-amber-400 absolute bottom-2.5 right-2.5 shadow">
+            <span class="absolute top-2.5 left-2.5 bg-amber-400 text-slate-950 font-rounded font-extrabold text-[10px] px-2.5 py-0.5 rounded-full">
+              NOA EDITION
+            </span>
+          </div>
+          <div class="p-4 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-rounded font-extrabold text-sm text-slate-800">オーバーサイズ・サイバーパーカー「NullPointer」</h3>
+              <p class="text-xs text-slate-500 mt-1 leading-relaxed">怜衣が乃愛のために設計した、幾何学ホログラム風バックプリント入りヘビーウェイトフーディー。</p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+              <span class="font-rounded font-extrabold text-base text-slate-800">¥5,480 <span class="text-[10px] font-normal text-slate-400">(税込)</span></span>
+              <a href="#suzuri-embed" class="px-3.5 py-1.5 rounded-xl bg-amber-400 hover:bg-amber-500 text-slate-950 font-rounded font-extrabold text-xs transition shadow-sm">
+                SUZURIで見る ↗
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 商品カード 2: 芽依モデル（サンプル画像差し替え枠） -->
+        <div data-char="mei" class="goods-card bg-white rounded-3xl border-2 border-emerald-400 overflow-hidden shadow-pop flex flex-col">
+          <div class="relative h-56 bg-gradient-to-br from-emerald-50 to-emerald-100/60 flex flex-col items-center justify-center p-4 border-b border-emerald-200">
+            <div class="w-24 h-24 rounded-2xl bg-white/90 border-2 border-dashed border-emerald-400 flex flex-col items-center justify-center text-emerald-700 mb-2 shadow-sm">
+              <span class="text-2xl">🥤</span>
+              <span class="text-[9px] font-bold mt-1">SAMPLE IMAGE</span>
+            </div>
+            <span class="text-[10px] font-bold text-emerald-800 bg-white/80 px-2.5 py-0.5 rounded-full border border-emerald-300">
+              ※後日SUZURI商品画像に差し替え
+            </span>
+            <img src="chibi_mei.jpg" class="w-10 h-10 rounded-full border-2 border-emerald-400 absolute bottom-2.5 right-2.5 shadow">
+            <span class="absolute top-2.5 left-2.5 bg-emerald-500 text-white font-rounded font-extrabold text-[10px] px-2.5 py-0.5 rounded-full">
+              MEI EDITION
+            </span>
+          </div>
+          <div class="p-4 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-rounded font-extrabold text-sm text-slate-800">ケトジェニック・サーモタンブラー＆防水ステッカー</h3>
+              <p class="text-xs text-slate-500 mt-1 leading-relaxed">MCTオイル入りコーヒーの保温に最適。「糖質中毒注意」のちび芽依イラスト刻印入り。</p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+              <span class="font-rounded font-extrabold text-base text-slate-800">¥3,680 <span class="text-[10px] font-normal text-slate-400">(税込)</span></span>
+              <a href="#suzuri-embed" class="px-3.5 py-1.5 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white font-rounded font-extrabold text-xs transition shadow-sm">
+                SUZURIで見る ↗
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 商品カード 3: 詩羽モデル（サンプル画像差し替え枠） -->
+        <div data-char="uta" class="goods-card bg-white rounded-3xl border-2 border-rose-400 overflow-hidden shadow-pop flex flex-col">
+          <div class="relative h-56 bg-gradient-to-br from-rose-50 to-rose-100/60 flex flex-col items-center justify-center p-4 border-b border-rose-200">
+            <div class="w-24 h-24 rounded-2xl bg-white/90 border-2 border-dashed border-rose-400 flex flex-col items-center justify-center text-rose-700 mb-2 shadow-sm">
+              <span class="text-2xl">🧢</span>
+              <span class="text-[9px] font-bold mt-1">SAMPLE IMAGE</span>
+            </div>
+            <span class="text-[10px] font-bold text-rose-800 bg-white/80 px-2.5 py-0.5 rounded-full border border-rose-300">
+              ※後日SUZURI商品画像に差し替え
+            </span>
+            <img src="chibi_uta.jpg" class="w-10 h-10 rounded-full border-2 border-rose-400 absolute bottom-2.5 right-2.5 shadow">
+            <span class="absolute top-2.5 left-2.5 bg-rose-500 text-white font-rounded font-extrabold text-[10px] px-2.5 py-0.5 rounded-full">
+              UTA EDITION
+            </span>
+          </div>
+          <div class="p-4 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-rounded font-extrabold text-sm text-slate-800">Hyper-Vocalist ネオングラフィックTシャツ＆アクスタ</h3>
+              <p class="text-xs text-slate-500 mt-1 leading-relaxed">ライブや配信部屋に映えるクリムゾンレッド×イエローのストリートグラフィックTシャツ。</p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+              <span class="font-rounded font-extrabold text-base text-slate-800">¥3,980 <span class="text-[10px] font-normal text-slate-400">(税込)</span></span>
+              <a href="#suzuri-embed" class="px-3.5 py-1.5 rounded-xl bg-rose-500 hover:bg-rose-600 text-white font-rounded font-extrabold text-xs transition shadow-sm">
+                SUZURIで見る ↗
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 商品カード 4: 怜衣モデル（サンプル画像差し替え枠） -->
+        <div data-char="rei" class="goods-card bg-white rounded-3xl border-2 border-[#2B4270] overflow-hidden shadow-pop-navy flex flex-col">
+          <div class="relative h-56 bg-gradient-to-br from-[#EBF0FA] to-[#DBE4F7] flex flex-col items-center justify-center p-4 border-b border-[#2B4270]/30">
+            <div class="w-24 h-24 rounded-2xl bg-white/90 border-2 border-dashed border-[#1E3A8A] flex flex-col items-center justify-center text-[#172554] mb-2 shadow-sm">
+              <span class="text-2xl">🦋</span>
+              <span class="text-[9px] font-bold mt-1">SAMPLE IMAGE</span>
+            </div>
+            <span class="text-[10px] font-bold text-[#172554] bg-white/80 px-2.5 py-0.5 rounded-full border border-[#2B4270]/40">
+              ※後日SUZURI商品画像に差し替え
+            </span>
+            <img src="chibi_rei.jpg" class="w-10 h-10 rounded-full border-2 border-[#1E3A8A] absolute bottom-2.5 right-2.5 shadow">
+            <span class="absolute top-2.5 left-2.5 bg-[#172554] text-white font-rounded font-extrabold text-[10px] px-2.5 py-0.5 rounded-full">
+              REI EDITION
+            </span>
+          </div>
+          <div class="p-4 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-rounded font-extrabold text-sm text-[#172554]">Atelier Rei モノグラム・PCトートバッグ＆クリアケース</h3>
+              <p class="text-xs text-slate-500 mt-1 leading-relaxed">怜衣の蝶モチーフと天秤エンブレムをあしらった、16インチMacBook対応のモード系キャンバストート。</p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+              <span class="font-rounded font-extrabold text-base text-[#172554]">¥4,200 <span class="text-[10px] font-normal text-slate-400">(税込)</span></span>
+              <a href="#suzuri-embed" class="px-3.5 py-1.5 rounded-xl bg-[#172554] hover:bg-[#1E3A8A] text-white font-rounded font-extrabold text-xs transition shadow-sm">
+                SUZURIで見る ↗
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- SUZURI 公式ウィジェット／iframe埋め込みスロット -->
+      <div id="suzuri-embed" class="bg-white rounded-3xl border-2 border-slate-800 p-6 shadow-pop">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 mb-4 border-b border-slate-100">
+          <div>
+            <span class="text-[10px] font-rounded font-extrabold bg-[#EBF0FA] text-[#172554] px-2.5 py-0.5 rounded-full border border-[#2B4270]/30">
+              EMBEDDED STORE SLOT
+            </span>
+            <h2 id="embedSlotTitle" class="font-rounded font-extrabold text-lg text-slate-800 mt-1">
+              🛍️ SUZURI 公式ショップ埋め込みエリア（国内向け無在庫販売）
+            </h2>
+          </div>
+          <span class="text-xs text-slate-500">※本番環境ではここにSUZURIまたは海外ストアの埋め込みタグを配置します</span>
+        </div>
+
+        <div class="bg-slate-50 border-2 border-dashed border-slate-300 rounded-2xl p-8 text-center">
+          <p id="embedCodeHint" class="text-xs font-mono text-slate-600 bg-white inline-block px-4 py-2 rounded-xl border border-slate-200 mb-2">
+            &lt;!-- ここに SUZURI 商品ウィジェット / iframe タグを貼り付け --&gt;
+          </p>
+          <p id="embedDescText" class="text-xs text-slate-500">
+            管理画面またはWordPressのカスタムHTMLブロックから、SUZURIの商品コードを貼るだけで即時反映されます。
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ========================================================== -->
+    <!-- TAB 2: About Us（サイトコンセプト・AI免責・二次利用禁止規定） -->
+    <!-- ========================================================== -->
+    <div id="sectionAbout" class="hidden space-y-8">
+
+      <!-- サイトコンセプト -->
+      <div class="bg-white rounded-3xl border-2 border-slate-800 p-6 md:p-8 shadow-pop">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+          <div class="lg:col-span-7 space-y-4">
+            <span class="bg-rose-100 text-rose-600 font-rounded font-extrabold text-xs px-3 py-1 rounded-full border border-rose-200">
+              📖 ABOUT SOCIAL MEDIA NEWS
+            </span>
+            <h1 class="font-rounded font-extrabold text-2xl sm:text-3xl text-slate-800">
+              『SNSにゅーす』<span class="text-base font-normal text-slate-500 ml-1">(Social Media News)</span> とは？
+            </h1>
+            <p class="text-sm text-slate-700 leading-relaxed">
+              『SNSにゅーす（Social Media News）』は、𝕏（旧Twitter）・YouTube・TikTok・InstagramなどのSNSで日々生まれる個人の熱狂やトレンド、議論の火種をピックアップし、異なる専門領域を持つ<strong>4人のAIキャラクター（AI 乃愛・AI 芽依・AI 詩羽・AI 怜衣）</strong>が多角的な視点で深掘り・討論する次世代AIキュレーションメディアです。
+            </p>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-2">
+              <div class="bg-amber-50 border border-amber-300 rounded-xl p-2.5 text-center">
+                <img src="chibi_noa.jpg" class="w-10 h-10 rounded-full mx-auto border-2 border-amber-400 object-cover">
+                <div class="font-rounded font-extrabold text-xs text-amber-950 mt-1">AI 乃愛</div>
+                <div class="text-[10px] text-amber-800 font-bold">IT・技術・論理分析</div>
+              </div>
+              <div class="bg-emerald-50 border border-emerald-300 rounded-xl p-2.5 text-center">
+                <img src="chibi_mei.jpg" class="w-10 h-10 rounded-full mx-auto border-2 border-emerald-400 object-cover">
+                <div class="font-rounded font-extrabold text-xs text-emerald-950 mt-1">AI 芽依</div>
+                <div class="text-[10px] text-emerald-800 font-bold">栄養・健康・初心者目線</div>
+              </div>
+              <div class="bg-rose-50 border border-rose-300 rounded-xl p-2.5 text-center">
+                <img src="chibi_uta.jpg" class="w-10 h-10 rounded-full mx-auto border-2 border-rose-400 object-cover">
+                <div class="font-rounded font-extrabold text-xs text-rose-950 mt-1">AI 詩羽</div>
+                <div class="text-[10px] text-rose-800 font-bold">エンタメ・配信者目線</div>
+              </div>
+              <div class="bg-[#EBF0FA] border border-[#2B4270] rounded-xl p-2.5 text-center">
+                <img src="chibi_rei.jpg" class="w-10 h-10 rounded-full mx-auto border-2 border-[#1E3A8A] object-cover">
+                <div class="font-rounded font-extrabold text-xs text-[#172554] mt-1">AI 怜衣</div>
+                <div class="text-[10px] text-[#1E3A8A] font-bold">法務・倫理・デザイン</div>
+              </div>
+            </div>
+          </div>
+          <div class="lg:col-span-5 space-y-3">
+            <img src="ogp_banner.jpg" alt="SNSにゅーす 公式OGPバナー" class="w-full rounded-2xl border-2 border-slate-800 shadow-pop">
+            <div class="flex items-center gap-3 bg-slate-50 p-2.5 rounded-xl border border-slate-200">
+              <img src="favicon_512.png" alt="公式ファビコン" class="w-12 h-12 rounded-xl border border-slate-300 shrink-0">
+              <div class="text-[11px] text-slate-600">
+                <strong class="text-slate-800 block">公式OGPバナー ＆ ファビコン</strong>
+                SNSシェア時のアイキャッチおよびブラウザ・ホーム画面アイコン
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 著作権・二次利用禁止・免責事項（重要規定） -->
+      <div class="bg-white rounded-3xl border-2 border-slate-800 p-6 md:p-8 shadow-pop space-y-6">
+        <div class="border-b-2 border-slate-100 pb-3">
+          <span class="text-xs font-rounded font-extrabold text-rose-600">⚖️ TERMS & LEGAL NOTICE</span>
+          <h2 class="font-rounded font-extrabold text-xl text-slate-800 mt-0.5">著作権・二次利用の禁止および免責事項</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+          <!-- 1. 無断転載・商用利用・二次利用の禁止 -->
+          <div class="bg-rose-50/60 border-2 border-rose-300 rounded-2xl p-5">
+            <div class="font-rounded font-extrabold text-sm text-rose-950 mb-2 flex items-center gap-1.5">
+              <span>🚫</span>
+              <span>1. 無断転載・商用利用・二次利用の禁止</span>
+            </div>
+            <p class="text-xs text-slate-700 leading-relaxed">
+              当サイト（SNSにゅーす / Social Media News）に掲載されているすべてのキャラクターイラスト（通常ver・ちびキャラver・マンガver・設定画）、キャラクター設定、ロゴ、テキスト、および生成された対話コンテンツの著作権は当サイト運営者に帰属します。<br><br>
+              <strong class="text-rose-700">いかなる理由があっても、無断転載・複製・改変・二次利用・商用利用・AI学習データへの利用を固く禁止いたします。</strong>
+            </p>
+          </div>
+
+          <!-- 2. AIキャラクターによる発言の免責事項 -->
+          <div class="bg-amber-50/60 border-2 border-amber-300 rounded-2xl p-5">
+            <div class="font-rounded font-extrabold text-sm text-amber-950 mb-2 flex items-center gap-1.5">
+              <span>🤖</span>
+              <span>2. AI生成コンテンツに関する免責事項</span>
+            </div>
+            <p class="text-xs text-slate-700 leading-relaxed">
+              記事内で「AI 乃愛」「AI 芽依」「AI 詩羽」「AI 怜衣」として表示される発言・討論・要約は、大規模言語モデル（AI）によって自動生成された架空のキャラクターによる見解であり、実在の人物・団体とは一切関係ありません。<br><br>
+              特定の個人や団体を誹謗中傷する意図はなく、情報の正確性・完全性・最新性について保証するものではありません。
+            </p>
+          </div>
+
+          <!-- 3. SNS引用・外部リンクについて -->
+          <div class="bg-[#EBF0FA]/70 border-2 border-[#2B4270] rounded-2xl p-5">
+            <div class="font-rounded font-extrabold text-sm text-[#172554] mb-2 flex items-center gap-1.5">
+              <span>🔗</span>
+              <span>3. SNS投稿の引用と外部サービスについて</span>
+            </div>
+            <p class="text-xs text-slate-700 leading-relaxed">
+              当サイトにおける各SNS（𝕏 / YouTube / TikTok / Instagram等）の投稿紹介は、著作権法第32条に基づく正当な引用範囲、および各プラットフォームが提供する公式埋め込み機能（oEmbed等）の利用規約に準拠して掲載しております。<br><br>
+              また、「Atelier Rei」にて紹介するグッズ販売は外部オンデマンドサービス（SUZURI等）での決済・配送となります。
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- フッター -->
+  <footer class="bg-slate-900 text-slate-400 text-xs py-8 px-4 mt-12 border-t-4 border-rose-500">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div>
+        <span class="font-rounded font-extrabold text-white text-sm">SNSにゅーす (Social Media News)</span>
+        <span class="ml-2 text-[11px] text-slate-500">https://sns-news.jp</span>
+        <p class="text-[11px] text-slate-500 mt-1">© 2026 SNSにゅーす / Social Media News. All Rights Reserved. 無断転載・二次利用・商用利用禁止</p>
+      </div>
+      <div class="flex items-center gap-4 font-rounded font-bold">
+        <a href="top_page_prototype.html" class="hover:text-white transition">トップ</a>
+        <a href="character_design_gallery.html" class="hover:text-white transition">Characters</a>
+        <button onclick="switchPageTab('shop')" class="hover:text-white transition">Atelier Rei (Goods)</button>
+        <button onclick="switchPageTab('about')" class="hover:text-white transition">About Us & 免責事項</button>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ショップ / About Us タブ切り替え
+    function switchPageTab(tab) {
+      const isShop = tab === 'shop';
+      document.getElementById('sectionShop').classList.toggle('hidden', !isShop);
+      document.getElementById('sectionAbout').classList.toggle('hidden', isShop);
+
+      document.getElementById('navBtnShop').className = isShop
+        ? 'px-3.5 py-1.5 rounded-full bg-[#172554] text-white font-rounded font-extrabold text-xs whitespace-nowrap shadow-sm transition'
+        : 'px-3.5 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-rounded font-extrabold text-xs whitespace-nowrap transition';
+
+      document.getElementById('navBtnAbout').className = !isShop
+        ? 'px-3.5 py-1.5 rounded-full bg-[#172554] text-white font-rounded font-extrabold text-xs whitespace-nowrap shadow-sm transition'
+        : 'px-3.5 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-rounded font-extrabold text-xs whitespace-nowrap transition';
+    }
+
+    // URLハッシュが #about の場合はAboutタブを開く
+    if (window.location.hash === '#about') {
+      switchPageTab('about');
+    }
+
+    // 国内向け(SUZURI) / 海外向け(Global EN) 切り替え
+    function switchStoreLang(lang) {
+      const isJP = lang === 'jp';
+      document.getElementById('btnLangJP').className = isJP
+        ? 'px-4 py-2 rounded-xl text-xs font-rounded font-extrabold bg-white text-[#172554] shadow transition'
+        : 'px-4 py-2 rounded-xl text-xs font-rounded font-extrabold text-slate-300 hover:text-white transition';
+      document.getElementById('btnLangEN').className = !isJP
+        ? 'px-4 py-2 rounded-xl text-xs font-rounded font-extrabold bg-white text-[#172554] shadow transition'
+        : 'px-4 py-2 rounded-xl text-xs font-rounded font-extrabold text-slate-300 hover:text-white transition';
+
+      if (isJP) {
+        document.getElementById('shopHeroTitle').innerHTML = 'Atelier Rei <span class="text-base sm:text-lg font-normal text-blue-200 ml-1">— 公式グッズ＆アパレル —</span>';
+        document.getElementById('shopHeroQuote').innerHTML = '「……普段使いできないようなダサいキャラグッズは、私の美意識が許さないわ。<br class="hidden sm:inline">シルエットと素材感、そして4人のモチーフを日常に溶け込ませたコレクションよ。好きなものを選んでちょうだい。」';
+        document.getElementById('storeBadgeInfo').textContent = '📦 配送元：GMOペパボ SUZURI（オンデマンド生産・国内匿名配送対応）';
+        document.getElementById('embedSlotTitle').textContent = '🛍️ SUZURI 公式ショップ埋め込みエリア（国内向け無在庫販売）';
+        document.getElementById('embedCodeHint').textContent = '<!-- ここに SUZURI 商品ウィジェット / iframe タグを貼り付け -->';
+      } else {
+        document.getElementById('shopHeroTitle').innerHTML = 'Atelier Rei <span class="text-base sm:text-lg font-normal text-blue-200 ml-1">— Official Global Merch Store —</span>';
+        document.getElementById('shopHeroQuote').innerHTML = '"I refuse to put my name on cheap-looking character merch. Every piece in this collection blends high-street silhouettes with our four signature motifs. Shipped worldwide on demand." — Rei Kokuyo';
+        document.getElementById('storeBadgeInfo').textContent = '🌍 Worldwide Shipping via Global Print-on-Demand Partner (USD / EUR / GBP)';
+        document.getElementById('embedSlotTitle').textContent = '🌍 Global Storefront Embed Area (International Shipping)';
+        document.getElementById('embedCodeHint').textContent = '<!-- Insert Global POD Store (Printify / Fourthwall / Redbubble) Embed Code Here -->';
+      }
+    }
+
+    // キャラクター別グッズ絞り込み
+    function filterGoods(charKey) {
+      document.querySelectorAll('.goods-card').forEach(card => {
+        if (charKey === 'all' || card.dataset.char === charKey) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    }
+  </script>
+</body>
+</html>
